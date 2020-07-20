@@ -1,2 +1,2 @@
 # RequiredChan
-ByChan Gerekli Program Yükleyici
+ByChan Gerekli Program Yükleyici ( ByChan Required Program Installer )
