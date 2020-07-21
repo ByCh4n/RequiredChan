@@ -22,6 +22,8 @@ That is why I have made it simple for you. With a single button, the program wil
 
 I Hope It Was Useful To You. :)
 
+Sosyal Medya ( Social Media )
+--------------------------------
 Youtube ▶️ : https://www.youtube.com/ByChan
 
 Instagram 📸 : huseyinaltns
