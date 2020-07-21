@@ -4,9 +4,9 @@ ByChan Gerekli Program Yükleyici ( ByChan Required Program Installer )
 
 Bu Program ByChan Tarafından Hazırlanmıştır.
 
-Bu Programı Yazma Nedenim Birçok Kişinin Termux Yada Kali Linux Sistemlerini Kullanıp Hangi Gerekli Programları İndireceklerini Bilmemeleri.
+Bu Programı Yazma Nedenim Birçok Kişinin Termux Ya da Kali Linux Sistemlerini Kullanıp Hangi Gerekli Programları İndireceklerini Bilmemeleri.
 
-O Yüzdendir Ki Bende Sizler İçin Bunu Basit Hale Getirdim Tek Bir Tuş İle Size Lazım Olacak Gerekecek Bütüm Programları Program Sizler İçin Kuruyor.
+O Yüzdendir Ki Bende Sizler İçin Bunu Basit Hale Getirdim Tek Bir Tuş İle Size Lazım Olacak Gerekecek Bütün Programları, Program Sizler İçin Kuruyor.
 
 Dilerim Ki Sizler İçin Yararlı Olmuştur. :)
 
