@@ -36,6 +36,10 @@ Kali Linux - Termux Installation ( Kurulumu )
 - cd RequiredChan
 - sudo bash reqchan
 
+YouTube Video
+---------------
+[https://youtu.be/IXzy-4E2bqs](url)
+
 Media :
 -------
 ![Ekran Alıntısı](https://user-images.githubusercontent.com/67187998/88076172-6a6df700-cb82-11ea-9106-e1072d5d834c.PNG)
