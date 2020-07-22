@@ -32,7 +32,7 @@ Kali Linux - Termux Installation ( Kurulumu )
 -----------------------------------------------
 - git clone https://github.com/ByCh4n/RequiredChan
 - cd RequiredChan
-- sudo bash reqchan.sh
+- sudo bash reqchan
 
 Media :
 -------
