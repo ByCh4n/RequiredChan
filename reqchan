@@ -1,0 +1,136 @@
+#!/usr/bin/env bash
+
+# Root Kontrol
+[[ `id -u` -eq 0 ]] > /dev/null 2>&1 || { echo "Programı Çalıştırmak İçin Root Olarak Giriş Yapınız Yada Komutun Başına Sudo Koyunuz."; exit 1; }
+
+clear
+function main_menu()
+{
+    while :
+    do
+clear
+cat banner/banner.txt
+echo " »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»"
+echo " ByChan Gerekli Program Yükleyici Ⓒ"
+echo " ByChan Required Program Installer Ⓒ"
+echo " «««««««««««««««««««««««««««««««««««"
+echo
+echo " [1] ► Otomatik Yükleyiciyi Başlat ( Launch Auto Installer ) ◄"
+echo " [2] ► Kali Linux Depo Güncelle ( Kali Linux Repository Update ) ◄"
+echo " [x] ► Çıkış ( Exit ) ◄"
+echo
+read -p "ByChan > " option
+echo
+
+case "$option" in
+        1)
+            echo " ► Otomatik Yükleyici Başlatıldı ( Auto Installer Started ) ◄"
+			sleep 4
+			echo " ► Kanala Abone Olup Like Atmayı Unutma ❤ ツ ◄"
+			echo " ► Do not forget to subscribe and like the channel ❤ ツ ◄" 
+            echo " ► Gerekli Programlar Yükleniyor Lütfen Sabırla Bekleyiniz... ◄"
+			echo " ► Required Programs Loading Please Wait Patiently ... ◄"
+            {
+			git pull
+			pkg update -y
+			pkg update -y
+            pkg upgrade -y
+			pkg install wget -y
+            pkg install python -y
+            pkg install python2 -y
+            pkg install python3 -y
+            pkg install git -y
+            pkg install nano -y
+            pip install openssl -y
+            pkg install openssl -y
+			pkg install openssh -y
+			termux-setup-storage -y
+			pip install requests -y
+            pkg install tor -y
+            pkg install curl -y
+            pip install curl -y
+            pip install tor -y
+            pip2 install mechanize -y
+            apt update -y
+            apt upgrade -y
+			apt autoremove -y
+			apt full-upgrade -y
+            apt-update && apt upgrade -y
+            pkg install git python php curl openssh grep -y
+            pip install stem -y
+			pkg -y install git -y
+			pkg -y install python -y
+			sudo apt-get update -y
+			sudo apt-get -y install git 
+			sudo apt-get -y install python3 
+			sudo apt-get -y install python3-pip
+            apt update -y
+            apt upgrade -y
+            sudo apt-get install python -y
+            sudo apt get install python2 -y
+            sudo apt-get install python3 -y
+            sudo apt-get install python-pip -y
+            sudo apt-get install python2-pip -y
+            sudo apt-get install python3-pip -y
+            sudo pip install mechanize -y
+            sudo pip2 install mechanize -y
+            sudo pip install php -y
+            sudo pip install tor -y
+            sudo apt-get install tor -y
+            sudo pip3 install requests -y
+            sudo apt-get install nmap -y
+            sudo apt-get install torghost -y
+            sudo pip3 install clint -y
+            sudo pip3 install coloramas -y
+            sudo apt-get install default-jdk -y
+            sudo apt-get install php -y
+			apk update
+			apk add git
+			apk add python3
+			apk add py3-pip
+			pacman -Sy
+			pacman -S --noconfirm git
+			pacman -S --noconfirm python3
+			pacman -S --noconfirm python3-pip
+			zypper refresh
+			zypper install -y git
+			zypper install -y python3
+			zypper install -y python3-pip
+			yum -y install git
+			yum -y install python3
+			yum -y install python3-pip
+			dnf -y install git
+			dnf -y install python3
+			dnf -y install python3-pip
+			eopkg update-repo
+			eopkg -y install git
+			eopkg -y install python3
+			eopkg -y install pip
+			xbps-install -S
+			xbps-install -y git
+			xbps-install -y python3
+			xbps-install -y python3-pip
+			sudo python3 -m pip install setuptools -y
+            } &> /dev/null
+			echo " ► Gerekli Programlar Yüklendi ✓ ( Required Programs Installed ) ◄"
+			sleep 3
+            ;;
+		2)
+			echo " ► Kali Linux Depo Güncelleniyor... ( Updating Kali Linux Repository... ) ◄"
+			sleep 2
+			{
+			echo -e "deb http://http.kali.org/kali kali-rolling main non-free contrib \n deb http://http.kali.org/kali kali-last-snapshot main non-free contrib \n deb http://http.kali.org/kali kali-experimental main non-free contrib \n deb-src http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
+			} &> /dev/null
+			echo " ► Kali Linux Deposu Güncellendi Otomatik Yükleyiciyi Başlatabilirsiniz... ◄"
+			echo " ► Kali Linux Repository Updated You Can Start the Auto Installer ... ◄     "
+			sleep 5
+			;;
+        x)
+            echo -" ByChan Programını Tercih Ettiğin İçin Teşekkürler. ❤ ツ"
+			echo -" Thank you for choosing the ByChan Program. ❤ ツ"
+            echo
+            exit 0
+        esac
+    done
+}
+main_menu
