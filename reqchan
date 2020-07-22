@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Root Kontrol
-[[ `id -u` -eq 0 ]] > /dev/null 2>&1 || { echo "Programı Çalıştırmak İçin Root Olarak Giriş Yapınız Yada Komutun Başına Sudo Koyunuz."; exit 1; }
-
 clear
 function main_menu()
 {
