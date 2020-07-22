@@ -12,6 +12,8 @@ O Yüzdendir Ki Bende Sizler İçin Bunu Basit Hale Getirdim Tek Bir Tuş İle S
 
 Dilerim Ki Sizler İçin Yararlı Olmuştur. :)
 
+**TÜRK HERŞEYİN EN İYİSİNE LAYIKTIR.**
+
 EN:
 ---
 This Program is Prepared by ByChan.
