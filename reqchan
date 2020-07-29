@@ -87,8 +87,6 @@ case "$option" in
 			echo -e $red "OK"
 			apt full-upgrade -y &> /dev/null
 			echo -e $red "OK"
-            apt update && apt upgrade -y &> /dev/null
-			echo -e $red "OK"
             pkg install git python php curl openssh grep -y &> /dev/null
 			echo -e $red "OK"
             pip install stem -y &> /dev/null
