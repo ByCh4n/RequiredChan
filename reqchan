@@ -18,6 +18,7 @@ function main_menu()
     while :
     do
 clear
+echo -e $green
 cat banner/banner.txt
 echo -e $green " »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»"
 echo -e $green " ByChan Gerekli Program Yükleyici Ⓒ"
