@@ -34,10 +34,6 @@ function main_menu()
 clear
 echo -e $green
 cat banner/banner.txt
-echo -e $green " »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»"
-echo -e $green " ByChan Gerekli Program Yükleyici Ⓒ"
-echo -e $green " ByChan Required Program Installer Ⓒ"
-echo -e $green " «««««««««««««««««««««««««««««««««««"
 echo
 echo -e $green " [1] ► Otomatik Yükleyiciyi Başlat ( Launch Auto Installer ) ◄"
 echo -e $green " [2] ► Kali Linux Depo Güncelle ( Kali Linux Repository Update ) ◄"
