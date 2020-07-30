@@ -298,6 +298,7 @@ case "$option" in
 			echo -e "deb http://http.kali.org/kali kali-rolling main non-free contrib \n deb http://http.kali.org/kali kali-last-snapshot main non-free contrib \n deb http://http.kali.org/kali kali-experimental main non-free contrib \n deb-src http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
 			} &> /dev/null
 			spinlong
+			echo
 			echo -e $blue " ► Kali Linux Deposu Güncellendi Otomatik Yükleyiciyi Başlatabilirsiniz... ◄"
 			echo -e $blue " ► Kali Linux Repository Updated You Can Start the Auto Installer ... ◄     "
 			sleep 5
