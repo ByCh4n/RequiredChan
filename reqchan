@@ -12,6 +12,20 @@ blue='\e[1;34m'
 echo ""
 sleep 2
 
+# Spinner
+spinlong ()
+{
+    bar=" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
+    barlength=${#bar}
+    i=0
+    while ((i < 100)); do
+        n=$((i*barlength / 100))
+        printf "\e[00;32m\r[%-${barlength}s]\e[00m" "${bar:0:n}"
+        ((i += RANDOM%5+2))
+        sleep 0.02
+    done
+}
+
 clear
 function main_menu()
 {
@@ -42,160 +56,238 @@ case "$option" in
 			echo -e $cyan " ► Required Programs Loading Please Wait Patiently ... ◄"
             {
 			git pull &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pkg update -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pkg update -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg upgrade -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install python -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install python2 -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install python3 -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install git -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install nano -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pip install openssl -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install openssl -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pkg install openssh -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			termux-setup-storage -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pip install requests -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install tor -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install curl -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pip install curl -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pip install tor -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pip2 install mechanize -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             apt update -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             apt upgrade -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apt autoremove -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apt full-upgrade -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pkg install git python php curl openssh grep -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             pip install stem -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pkg -y install git -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pkg -y install python -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sudo apt-get update -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sudo apt-get -y install git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sudo apt-get -y install python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sudo apt-get -y install python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
             apt update -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             apt upgrade -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install python -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt get install python2 -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install python3 -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install python-pip -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install python2-pip -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install python3-pip -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip install mechanize -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip2 install mechanize -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip install php -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip install tor -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install tor -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip3 install requests -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install nmap -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install torghost -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip3 install clint -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo pip3 install coloramas -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install default-jdk -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
             sudo apt-get install php -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apk update &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apk add git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apk add python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			apk add py3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pacman -Sy &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pacman -S --noconfirm git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pacman -S --noconfirm python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			pacman -S --noconfirm python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			zypper refresh &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			zypper install -y git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			zypper install -y python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			zypper install -y python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			yum -y install git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			yum -y install python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			yum -y install python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			dnf -y install git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			dnf -y install python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			dnf -y install python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			eopkg update-repo &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			eopkg -y install git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			eopkg -y install python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			eopkg -y install pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			xbps-install -S &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			xbps-install -y git &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			xbps-install -y python3 &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			xbps-install -y python3-pip &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sudo python3 -m pip install setuptools -y &> /dev/null
+			spinlong
 			echo -e $red "OK"
 			sleep 2
             }
