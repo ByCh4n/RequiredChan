@@ -42,7 +42,7 @@ YouTube Video
 
 Media :
 -------
-![Ekran Alıntısı](https://user-images.githubusercontent.com/67187998/88076172-6a6df700-cb82-11ea-9106-e1072d5d834c.PNG)
-![2](https://user-images.githubusercontent.com/67187998/88076175-6b9f2400-cb82-11ea-9564-2186c093418e.PNG)
-![3](https://user-images.githubusercontent.com/67187998/88111293-55ab5680-cbb6-11ea-8dbb-6d1c160409e7.PNG)
+![1](https://user-images.githubusercontent.com/67187998/88924489-092dde00-d27c-11ea-9d9f-e9e409304cb0.PNG)
+
+![2](https://user-images.githubusercontent.com/67187998/88924493-09c67480-d27c-11ea-881d-d82a791c4090.PNG)
 
