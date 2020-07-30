@@ -52,7 +52,7 @@ case "$option" in
             echo -e $cyan " ► Gerekli Programlar Yükleniyor Lütfen Sabırla Bekleyiniz... ◄"
 			echo -e $cyan " ► Required Programs Loading Please Wait Patiently ... ◄"
             {
-			git pull &> /dev/null
+			sudo git pull &> /dev/null
 			spinlong
 			echo -e $red "OK"
 			pkg update -y &> /dev/null
