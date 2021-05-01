@@ -1,312 +1,128 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-#Colors
-cyan='\e[0;36m'
-lightcyan='\e[96m'
-green='\e[0;32m'
-lightgreen='\e[1;32m'
-white='\e[1;37m'
-red='\e[1;31m'
-yellow='\e[1;33m'
-blue='\e[1;34m'
-echo ""
-sleep 2
+# Değişkenler
+version="2"
+author="ByCh4n"
 
-# Spinner
-spinlong ()
-{
-    bar=" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
-    barlength=${#bar}
-    i=0
-    while ((i < 100)); do
-        n=$((i*barlength / 100))
-        printf "\e[00;32m\r[%-${barlength}s]\e[00m" "${bar:0:n}"
-        ((i += RANDOM%5+2))
-        sleep 0.02
-    done
+# Klasik renk değişkenlerimiz
+    cyan='\e[0;36m'
+    lightcyan='\e[96m'
+    lightgreen='\e[1;32m'
+    white='\e[1;37m'
+    red='\e[1;31m'
+    yellow='\e[1;33m'
+    blue='\e[1;34m'
+    green='\e[0;32m'
+    reset='\e[0m'
+
+banner() {
+	echo -e "
+ICAgICAgICAgICAgICwtLS0tLS0tLS0tLS0tLS0tLCAgICAgICAgICAgICAgLC0tLS0tLS0tLSwK
+ICAgICAgICAsLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0sICAgICAgICAgICwiICAgICAgICAsInwK
+ICAgICAgLCIgICAgICAgICAgICAgICAgICAgICAgLCJ8ICAgICAgICAsIiAgICAgICAgLCIgIHwK
+ICAgICArLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rICB8ICAgICAgLCIgICAgICAgICwiICAgIHwg
+R2l0SHViICAgIDogQnlDaDRuCiAgICAgfCAgLi0tLS0tLS0tLS0tLS0tLS0tLiAgfCAgfCAgICAg
+Ky0tLS0tLS0tLSsgICAgICB8IEluc3RhZ3JhbSA6IGh1c2V5aW5hbHRucwogICAgIHwgIHwgICAg
+QXV0b21hdGljICAgIHwgIHwgIHwgICAgIHwgLT09LS0tLSd8ICAgICAgfCBEaXNjb3JkICAgOiBk
+aXNjb3JkLmdnL201QjRjNXJuYlIKICAgICB8ICB8ICAgICBQcm9ncmFtICAgICB8ICB8ICB8ICAg
+ICB8ICAgICAgICAgfCAgICAgIHwKICAgICB8ICB8ICAgIEluc3RhbGxlciEgICB8ICB8ICB8Ly0t
+LS18YC0tLT0gICAgfCAgICAgIHwKICAgICB8ICB8ICBDOlw+XyAgICAgICAgICB8ICB8ICB8ICAg
+LC98PT09PSBvb28gfCAgICAgIDsKICAgICB8ICB8ICAgICAgICAgICAgICAgICB8ICB8ICB8ICAv
+LyB8KCgoKCBbMzNdfCAgICAsIgogICAgIHwgIGAtLS0tLS0tLS0tLS0tLS0tLScgIHwsIiAuOyd8
+IHwoKCgoICAgICB8ICAsIgogICAgICstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLSsgIDs7ICB8IHwg
+ICAgICAgICB8LCIgICAgIAogICAgICAgIC9fKV9fX19fX19fX19fX19fKF8vICAvLycgICB8ICst
+LS0tLS0tLS0rCiAgIF9fX19fX19fX19fX19fX19fX19fX19fX19fXy9fX18gIGAsCiAgLyAgb29v
+b29vb29vb29vb29vbyAgLm8uICBvb29vIC8sICAgXCwiLS0tLS0tLS0tLS0KIC8gPT1vb29vb29v
+b29vb29vb289PS5vLiAgb29vPSAvLyAgICxgXC0teylCICAgICAsIgovXz09X189PT09PT09PT09
+X189PV9vb29fX29vbz1fLycgICAvX19fX19fX19fX18sIgpgLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0nCg==
+" | base64 -d && echo -e ""
 }
 
-clear
-function main_menu()
-{
-    while :
-    do
-clear
-echo -e $green
-cat banner/banner.txt
-echo
-echo
-echo -e $green " [1] ► Otomatik Yükleyiciyi Başlat ( Launch Auto Installer ) ◄"
-echo -e $green " [2] ► Kali Linux Depo Güncelle ( Kali Linux Repository Update ) ◄"
-echo -e $green " [x] ► Çıkış ( Exit ) ◄"
-echo
-read -p "ByChan > " option
-echo
+checknet() {
+    ping -q -w1 -c1 google.com &>/dev/null && netcheck="online" || netcheck="offline"
+    case ${1} in
+        print|PRINT|-p)
+            echo "${netcheck}"
+        ;;
+    esac
+}
 
-case "$option" in
-        1)
-            echo -e $cyan " ► Otomatik Yükleyici Başlatıldı ( Auto Installer Started ) ◄"
-			sleep 4
-			echo -e $cyan " ► Kanala Abone Olup Like Atmayı Unutma ❤ ツ ◄"
-			echo -e $cyan " ► Do not forget to subscribe and like the channel ❤ ツ ◄" 
-            echo -e $cyan " ► Gerekli Programlar Yükleniyor Lütfen Sabırla Bekleyiniz... ◄"
-			echo -e $cyan " ► Required Programs Loading Please Wait Patiently ... ◄"
-            {
-			sudo git pull &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pkg update -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pkg update -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg upgrade -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install python -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install python2 -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install python3 -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install git -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install nano -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pip install openssl -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install openssl -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pkg install openssh -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			termux-setup-storage -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pip install requests -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install tor -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install curl -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pip install curl -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pip install tor -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pip2 install mechanize -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            apt update -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            apt upgrade -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apt autoremove -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apt full-upgrade -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pkg install git python php curl openssh grep -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            pip install stem -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pkg -y install git -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pkg -y install python -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sudo apt-get update -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sudo apt-get -y install git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sudo apt-get -y install python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sudo apt-get -y install python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            apt update -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            apt upgrade -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install python -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt get install python2 -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install python3 -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install python-pip -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install python2-pip -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install python3-pip -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip install mechanize -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip2 install mechanize -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip install php -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip install tor -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install tor -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip3 install requests -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install nmap -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install torghost -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip3 install clint -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo pip3 install coloramas -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install default-jdk -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-            sudo apt-get install php -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apk update &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apk add git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apk add python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			apk add py3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pacman -Sy &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pacman -S --noconfirm git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pacman -S --noconfirm python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			pacman -S --noconfirm python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			zypper refresh &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			zypper install -y git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			zypper install -y python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			zypper install -y python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			yum -y install git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			yum -y install python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			yum -y install python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			dnf -y install git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			dnf -y install python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			dnf -y install python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			eopkg update-repo &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			eopkg -y install git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			eopkg -y install python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			eopkg -y install pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			xbps-install -S &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			xbps-install -y git &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			xbps-install -y python3 &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			xbps-install -y python3-pip &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sudo python3 -m pip install setuptools -y &> /dev/null
-			spinlong
-			echo -e $red "OK"
-			sleep 2
-            }
-			echo -e $blue " ► Gerekli Programlar Yüklendi ✓ ( Required Programs Installed ) ◄"
-			sleep 3
-            ;;
-		2)
-			echo -e $blue " ► Kali Linux Depo Güncelleniyor... ( Updating Kali Linux Repository... ) ◄"
-			sleep 2
-			{
-			echo -e "deb http://http.kali.org/kali kali-rolling main non-free contrib \n deb http://http.kali.org/kali kali-last-snapshot main non-free contrib \n deb http://http.kali.org/kali kali-experimental main non-free contrib \n deb-src http://http.kali.org/kali kali-rolling main non-free contrib" >> /etc/apt/sources.list
-			} &> /dev/null
-			echo -e $blue " ► Kali Linux Deposu Güncellendi Otomatik Yükleyiciyi Başlatabilirsiniz... ◄"
-			echo -e $blue " ► Kali Linux Repository Updated You Can Start the Auto Installer ... ◄     "
-			sleep 5
+checkos() {
+	if [[ $(uname -v) == *kali* ]] ; then
+		os="kali"
+	elif [ -e /etc/arch-release ] ; then
+		os="arch"
+	elif [ -e /etc/apt/sources.list ] ; then
+		os="debian"
+	else
+		os="unknow"
+	fi
+}
+
+# THIS FUNCTION IS ABSOLETLY BROKEN I WILL FIX IT AFTER
+updatekalirepos() {
+	[ $(command -v git) ] || { pkexec apt install git ; }
+	[ -d kalisources ] || git clone https://github.com/lastpingu/kalisources
+	[ $UID = 0 ] || { echo "run it as root!" ; exit 1 ; }
+	cd kalisources
+	bash kalisources
+}
+
+main() {
+while :
+do
+	checkos
+	checknet -p
+	[[ $netcehck = "offline" ]] && { echo -e "${red}Please check your internet connection${reset}" ; exit 1 ; }
+	echo -ne "${yellow}$(banner)${reset}\n\n${lightgreen} 	[1]${reset} ► ${white}Otomatik Yükleyiciyi Başlat ( Launch Auto Installer )${reset} ◄
+	${lightgreen}$([ $os != kali ] && echo -e "${red}")[2]${reset}$([ $os != kali ] && echo -e "${red}") ► ${white}$([ $os != kali ] && echo -e "${red}")Kali Linux Depo Güncelle ( Kali Linux Repository Update )${reset}$([ $os != kali ] && echo -e "${red}") ◄
+	${lightgreen}[x]${reset} ► ${white}Çıkış ( Exit )${reset} ◄\n\n	┌─[${blue}${author}${reset}@${blue}${0}${reset}]─[~/${lightcyan}Main${reset}]\n	└──╼ $ ${reset}"
+	read option
+	
+	case "$option" in
+			1)
+				echo -e "${cyan} ► Otomatik Yükleyici Başlatıldı ( Auto Installer Started ) ❤ ツ ◄${reset}" 
+				echo -e "${cyan} ► Gerekli Programlar Yükleniyor Lütfen Sabırla Bekleyiniz... ( Required Programs Loading Please Wait Patiently... ) ❤ ツ ◄${reset}"
+								
+				case $os in
+					debian|kali)
+						[ $UID != 0 ] && { echo -e "${red}Run as root! sudo bash $0" ; exit 1 ; }
+						apt update
+						apt install -y python3 python3-pip git php nmap tor default-jdk curl openssh openssl wget unzip vi vim nano
+						echo -e "\n${green}Now This Step Can Be It May Take Time..${reset}"
+						apt upgrade -y && apt autoremove -y						
+					;;
+					arch)
+						[ $UID != 0 ] && { echo -e "${red}Run as root! sudo bash $0" ; exit 1 ; }
+						pacman -Syy
+						pacman -Sy --noconfirm python3 python3-pip git php nmap tor default-jdk curl openssh openssl wget unzip vi vim nano
+						echo -e "\n${green}Now This Step Can Be It May Take Time..${reset}"
+						pacman -Syyu --noconfirm
+					;;
+					unknow)
+						echo "Unknow distro"
+					;;
+				esac
+				pip3 install -y setuptools tor curl mechanize stem php colorama clint
+				echo -e "${blue} ► Gerekli Program aracı görevini tamamladı lütfen bir hata olmadığından emin olunuz eğer hata var ise bizimle iletişime geçiniz ✓ ◄${reset}"
 			;;
-        x)
-            echo -e $blue -" ByChan Programını Tercih Ettiğin İçin Teşekkürler. ❤ ツ"
-			echo -e $blue -" Thank you for choosing the ByChan Program. ❤ ツ"
-            echo
-            exit 0
-        esac
+			2)
+				[ $os != "kali" ] && { echo -e "\nBu seçeneği kali dağıtımı dışında kullanamazsınız." ; exit 1 ; }
+				updatekalirepos
+			;;
+			[eE][xX][iI][tT]|[xX])
+				echo -e "${blue} ByChan Programını Tercih Ettiğin İçin Teşekkürler. ${red}❤${blue} ツ\n${green} Thank you for choosing the ByChan Program. ${red}❤${blue} ツ${reset}\n"
+				exit 0
+			;;
+			[cC][lL][eE][aA][rR]|[cC][lL][sS]|[cC])
+				clear
+			;;
+			*)
+				echo -e "\n${red}	Bilinmeyen girdi?? (Unknow option)${reset}\n"
+			;;
+			esac
     done
 }
-main_menu
+
+main
