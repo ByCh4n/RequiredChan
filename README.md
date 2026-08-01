@@ -1,48 +1,65 @@
-# RequiredChan
+<h1 align="center">RequiredChan</h1>
 
-ByChan Gerekli Program Yükleyici ( ByChan Required Program Installer )
+<p align="center">
+  <img src="https://github.com/ByCh4n/RequiredChan/actions/workflows/shellcheck.yml/badge.svg" alt="ShellCheck" />
+  <img src="https://img.shields.io/github/license/ByCh4n/RequiredChan" alt="License" />
+  <img src="https://img.shields.io/github/stars/ByCh4n/RequiredChan?style=social" alt="Stars" />
+</p>
 
-TR:
----
-Bu Program ByChan Tarafından Hazırlanmıştır.
+A one-command installer that sets up the essential tools you need on a fresh
+**Kali Linux** or **Termux** environment. If you are not sure which packages to
+install to get started, RequiredChan installs the common set for you in a single
+step.
 
-Bu Programı Yazma Nedenim Birçok Kişinin Termux Ya da Kali Linux Sistemlerini Kullanıp Hangi Gerekli Programları İndireceklerini Bilmemeleri.
+## Features
 
-O Yüzdendir Ki Bende Sizler İçin Bunu Basit Hale Getirdim Tek Bir Tuş İle Size Lazım Olacak Gerekecek Bütün Programları, Program Sizler İçin Kuruyor.
+- Installs a curated baseline of tools with a single menu choice
+- Works on **Kali Linux** and **Termux**
+- Optional Kali Linux repository update helper
+- Simple bilingual (TR/EN) interactive menu
 
-Dilerim Ki Sizler İçin Yararlı Olmuştur. :)
+## Requirements
 
-**TÜRK HERŞEYİN EN İYİSİNE LAYIKTIR.**
+- `bash`
+- An `apt`- or `pacman`-based distribution (Kali / Debian / Arch) or Termux
+- Root privileges (`sudo`)
+- An active internet connection
 
-EN:
----
-This Program is Prepared by ByChan.
+## Installation
 
-Why I Wrote This Program Many People Don't Know What Termware To Download By Using Termux Or Kali Linux Systems.
+```bash
+git clone https://github.com/ByCh4n/RequiredChan
+cd RequiredChan
+sudo bash reqchan
+```
 
-That is why I have made it simple for you. With a single button, the program will install all the programs you will need.
+## Usage
 
-I Hope It Was Useful To You. :)
+Run `sudo bash reqchan` and choose an option from the menu:
 
-Sosyal Medya ( Social Media )
---------------------------------
-Youtube ▶️ : https://www.youtube.com/ByChan
+| Option | Description |
+|--------|-------------|
+| `1` | Launch the automatic installer for the required tools |
+| `2` | Update Kali Linux repositories (Kali only) |
+| `x` | Exit |
 
-Instagram 📸 : huseyinaltns
+## Disclaimer
 
-Kali Linux - Termux Installation ( Kurulumu )
------------------------------------------------
-- git clone https://github.com/ByCh4n/RequiredChan
-- cd RequiredChan
-- sudo bash reqchan
+This project is provided for **educational purposes only** and installs
+third-party software on your system. Review what it installs before running it,
+and use it only on systems you control. The author accepts no liability for
+misuse or any damage caused.
 
-YouTube Video
----------------
-[https://youtu.be/IXzy-4E2bqs](url)
+## Author
 
-Media :
--------
-![1](https://user-images.githubusercontent.com/67187998/88924489-092dde00-d27c-11ea-9d9f-e9e409304cb0.PNG)
+**Hüseyin Altıntaş — ByCh4n**
 
-![2](https://user-images.githubusercontent.com/67187998/88924493-09c67480-d27c-11ea-881d-d82a791c4090.PNG)
+- GitHub: [@ByCh4n](https://github.com/ByCh4n)
+- LinkedIn: [huseyinaltns](https://www.linkedin.com/in/huseyinaltns/)
+- X: [@huseyinaltns](https://x.com/huseyinaltns)
 
+Special thanks to [@lazypwny751](https://github.com/lazypwny751).
+
+## License
+
+Licensed under the [GPL-3.0](LICENSE) license.
