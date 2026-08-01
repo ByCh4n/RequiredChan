@@ -1,0 +1,6 @@
+# Script tarafından çalışma anında klonlanan dizin
+kalisources/
+
+# Genel
+*.log
+*.tmp

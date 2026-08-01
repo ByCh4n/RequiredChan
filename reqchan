@@ -74,7 +74,7 @@ while :
 do
 	checkos
 	checknet -p
-	[[ $netcehck = "offline" ]] && { echo -e "${red}Please check your internet connection${reset}" ; exit 1 ; }
+	[[ $netcheck = "offline" ]] && { echo -e "${red}Please check your internet connection${reset}" ; exit 1 ; }
 	echo -ne "${yellow}$(banner)${reset}\n\n${lightgreen} 	[1]${reset} ► ${white}Otomatik Yükleyiciyi Başlat ( Launch Auto Installer )${reset} ◄
 	${lightgreen}$([ $os != kali ] && echo -e "${red}")[2]${reset}$([ $os != kali ] && echo -e "${red}") ► ${white}$([ $os != kali ] && echo -e "${red}")Kali Linux Depo Güncelle ( Kali Linux Repository Update )${reset}$([ $os != kali ] && echo -e "${red}") ◄
 	${lightgreen}[x]${reset} ► ${white}Çıkış ( Exit )${reset} ◄\n\n	┌─[${blue}${author}${reset}@${blue}${0}${reset}]─[~/${lightcyan}Main${reset}]\n	└──╼ $ ${reset}"
@@ -104,7 +104,7 @@ do
 						echo "Unknow distro"
 					;;
 				esac
-				pip3 install -y setuptools tor curl mechanize stem php colorama clint
+				pip3 install setuptools mechanize stem colorama clint
 				echo -e "${blue} ► Gerekli Program aracı görevini tamamladı lütfen bir hata olmadığından emin olunuz eğer hata var ise bizimle iletişime geçiniz ✓ ◄${reset}"
 			;;
 			2)
